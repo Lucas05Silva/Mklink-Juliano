@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+/* Paleta da marca — trocar aqui propaga para todas as classes brand-* */
+@theme {
+  --color-brand-bg: #0f1014;
+  --color-brand-card: #1a1b21;
+  --color-brand-gold: #c9a96e;
+  --color-brand-gold-hover: #b8963d;
+  --color-brand-cream: #f5f0eb;
+
+  --radius-card: 24px;
+  --radius-button: 14px;
+
+  --animate-pulse-badge: pulse-badge 2.5s ease-in-out infinite;
+
+  @keyframes pulse-badge {
+    0%,
+    100% {
+      opacity: 0.8;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+}
+
+/* Inline porque referenciam as variáveis criadas pelo next/font */
+@theme inline {
+  --font-display: var(--font-cormorant), Georgia, serif;
+  --font-body: var(--font-inter), system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--color-brand-bg);
+  color: var(--color-brand-cream);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: rgb(201 169 110 / 0.25);
+  color: var(--color-brand-cream);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-brand-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(255 255 255 / 0.1);
+  border-radius: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
